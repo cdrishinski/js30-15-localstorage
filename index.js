@@ -1,5 +1,6 @@
 const addItems = document.querySelector('.add-items');
 const itemsList = document.querySelector('.plates');
+const checkAllButton = document.querySelector('.check-all-button');
 const items = JSON.parse(localStorage.getItem('items')) || [];
 
 function addItem(e){
@@ -36,7 +37,12 @@ function toggleDone(e){
     populateList(items, itemsList)
 }
 
+function checkAllItems (itemsList){
+   console.log(itemsList);
+}
+
 addItems.addEventListener('submit', addItem)
 itemsList.addEventListener('click', toggleDone)
+checkAllButton.addEventListener('click', checkAllItems(itemsList))
 
 populateList(items, itemsList)
