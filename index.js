@@ -37,12 +37,18 @@ function toggleDone(e){
     populateList(items, itemsList)
 }
 
-function checkAllItems (itemsList){
-   console.log(itemsList);
-}
+function checkAllItems (e){
+    items.map((item)=>{
+        item.done = true;
+        localStorage.setItem('items', JSON.stringify(items))
+        populateList(items, itemsList)
+    })
+        
+    };
+   
 
 addItems.addEventListener('submit', addItem)
 itemsList.addEventListener('click', toggleDone)
-checkAllButton.addEventListener('click', checkAllItems(itemsList))
+checkAllButton.addEventListener('click', checkAllItems)
 
 populateList(items, itemsList)
